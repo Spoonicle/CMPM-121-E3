@@ -1,3 +1,19 @@
+// Image Credit:
+// File: src/assets/Propellor Hat.png
+// Source: https://www.publicdomainfiles.com/show_file.php?id=13932598218705
+// Creator: nicubunu
+// License: Public Domain Clip Art Image: Propeller hat
+// @deno-types="./asset-url.d.ts"
+import propellorHatUrl from "./assets/Propellor Hat.png?no-inline";
+
+// Image Credit:
+// File: src/assets/clown_nose.png
+// Source: https://boxcritters.wiki/File:Icon_clown_nose.png.html
+// Creator: Hyper Hippo Entertainment Ltd
+// License: Copyrighted by Hyper Hippo Entertainment Ltd; used under educational fair use for student coursework
+// @deno-types="./asset-url.d.ts"
+import clownNoseUrl from "./assets/clown_nose.png?no-inline";
+
 const portrait = document.querySelector<HTMLDivElement>("#portrait")!;
 const spin = document.querySelector<HTMLButtonElement>("#spin")!;
 
@@ -5,7 +21,11 @@ function buildFace() {
   const face = document.createElementNS("http://www.w3.org/2000/svg", "svg");
   face.setAttribute("viewBox", "0 0 200 200");
   face.setAttribute("role", "img");
-  face.setAttribute("aria-label", "A neutral face");
+  face.setAttribute(
+    "aria-label",
+    "A face wearing a propeller hat and a clown nose",
+  );
+  face.style.overflow = "visible";
 
   const head = document.createElementNS(
     "http://www.w3.org/2000/svg",
@@ -42,15 +62,27 @@ function buildFace() {
   rightEye.setAttribute("fill", "#302c29");
   face.append(rightEye);
 
-  const nose = document.createElementNS("http://www.w3.org/2000/svg", "line");
-  nose.setAttribute("x1", "100");
-  nose.setAttribute("y1", "96");
-  nose.setAttribute("x2", "96");
-  nose.setAttribute("y2", "112");
-  nose.setAttribute("stroke", "#302c29");
-  nose.setAttribute("stroke-width", "4");
-  nose.setAttribute("stroke-linecap", "round");
-  face.append(nose);
+  const clownNoseImage = document.createElementNS(
+    "http://www.w3.org/2000/svg",
+    "image",
+  );
+  clownNoseImage.setAttribute("href", clownNoseUrl);
+  clownNoseImage.setAttribute("x", "65");
+  clownNoseImage.setAttribute("y", "72");
+  clownNoseImage.setAttribute("width", "70");
+  clownNoseImage.setAttribute("height", "70");
+  face.append(clownNoseImage);
+
+  const hatImage = document.createElementNS(
+    "http://www.w3.org/2000/svg",
+    "image",
+  );
+  hatImage.setAttribute("href", propellorHatUrl);
+  hatImage.setAttribute("x", "20");
+  hatImage.setAttribute("y", "-70");
+  hatImage.setAttribute("width", "160");
+  hatImage.setAttribute("height", "160");
+  face.append(hatImage);
 
   const mouth = document.createElementNS("http://www.w3.org/2000/svg", "line");
   mouth.setAttribute("x1", "75");
