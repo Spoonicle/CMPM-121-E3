@@ -5,7 +5,23 @@ const spin = document.querySelector<HTMLButtonElement>("#spin")!;
 const face = document.createElementNS("http://www.w3.org/2000/svg", "svg");
 face.setAttribute("viewBox", "0 0 200 200");
 face.setAttribute("role", "img");
-face.setAttribute("aria-label", "A neutral face");
+face.setAttribute("aria-label", "Punk with spiky halo");
+
+for (let i = 0; i < 5; i++) {
+  const radius = 84 + (i * 3);
+  for (let j = 0; j < 25; j++) {
+    const angle = (j / 25) * Math.PI * 2;
+    const dot = document.createElementNS(
+      "http://www.w3.org/2000/svg",
+      "circle",
+    );
+    dot.setAttribute("cx", String(100 + radius * Math.cos(angle)));
+    dot.setAttribute("cy", String(100 + radius * Math.sin(angle)));
+    dot.setAttribute("r", "3");
+    dot.setAttribute("fill", "#563b67");
+    face.append(dot);
+  }
+}
 
 const head = document.createElementNS("http://www.w3.org/2000/svg", "ellipse");
 head.setAttribute("cx", "100");
@@ -51,9 +67,9 @@ face.append(nose);
 
 const mouth = document.createElementNS("http://www.w3.org/2000/svg", "line");
 mouth.setAttribute("x1", "75");
-mouth.setAttribute("y1", "137");
+mouth.setAttribute("y1", "132");
 mouth.setAttribute("x2", "125");
-mouth.setAttribute("y2", "137");
+mouth.setAttribute("y2", "140");
 mouth.setAttribute("stroke", "#302c29");
 mouth.setAttribute("stroke-width", "4");
 mouth.setAttribute("stroke-linecap", "round");
