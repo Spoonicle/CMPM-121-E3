@@ -24,3 +24,9 @@
 ## Selection Criteria
 
 - Suits a higher enegry punkish character, while still readable at icon scale.
+
+## Decision
+
+Chose: **B: Assets**
+
+I picked branch B because of its clear sillouette and color, ensuring it remains clear at a smaller icon scale. I also just really liked the silly accessories. Branch's A and C remain.
